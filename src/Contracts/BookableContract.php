@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CheesyTech\LaravelMultiBooking;
+namespace CheesyTech\LaravelMultiBooking\Contracts;
 
 interface BookableContract
 {

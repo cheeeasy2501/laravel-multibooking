@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CheesyTech\LaravelMultiBooking;
+namespace CheesyTech\LaravelMultiBooking\Traits;
 
+use CheesyTech\LaravelMultiBooking\Booking;
+use CheesyTech\LaravelMultiBooking\Contracts\BookableContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -28,18 +30,24 @@ trait HasBookings
 
     public function newBooking(BookableContract $bookable): Model
     {
+        /** @var Model $this */
         return $this->bookings()->create([
             'bookable_id' => $bookable->getBookableId(),
             'bookable_type' => $bookable->getBookableType(),
+            'booker_id' => $this->getKey(),
+            'booker_type' => $this->getMorphClass(),
         ]);
     }
 
-    public function deleteBooking(BookableContract $bookable): bool
+    public function deleteBooking(BookableContract $bookable): int
     {
-        return (bool)$this->bookings()
+        /** @var Model $this */
+        return $this->bookings()
             ->where([
                 'bookable_id' => $bookable->getBookableId(),
                 'bookable_type' => $bookable->getBookableType(),
+                'booker_id' => $this->getKey(),
+                'booker_type' => $this->getMorphClass(),
             ])
             ->delete();
     }

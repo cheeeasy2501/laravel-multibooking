@@ -1,8 +1,14 @@
 <?php
 
-use CheeasyTech\LaravelMultiBooking\Booking;
+use CheesyTech\LaravelMultiBooking\Booking;
 
 return [
-    'booking_model' => Booking::class,
-    'user_model' => 'App\\Models\\User',
+    'models' => [
+        'booking' => Booking::class,
+        'booker' => 'App\\Models\\User',
+    ],
+
+    'tables' => [
+        'bookings' => env('BOOKING_TABLES','bookings'),
+    ]
 ];

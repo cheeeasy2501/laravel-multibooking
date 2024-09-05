@@ -13,18 +13,31 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'booking_id',
-        'booking_type',
-        'user_id',
+        'bookable_id',
+        'bookable_type',
+        'booker_id',
+        'booker_type',
     ];
+
+    protected $casts = [
+        'bookable_id' => 'integer',
+        'booker_id' => 'integer',
+    ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->table = config('booking.tables.bookings');
+    }
 
     public function bookable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function user(): BelongsTo
+    public function booker(): BelongsTo
     {
-        return $this->belongsTo(config('booking.user_model'));
+        return $this->belongsTo(config('booking.models.booker'), 'booker_id');
     }
 }
