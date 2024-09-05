@@ -1,0 +1,46 @@
+{
+  "name": "cheeasy-tech/laravel-multibooking",
+  "description": "Implementation of multi-booking for Laravel",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Nikita Koida"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "laravel/framework": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+    "spatie/laravel-package-tools": "^1.16"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.43",
+    "pestphp/pest": ">=2.35.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "CheeasyTech\\LaravelMultibooking\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CheeasyTech\\LaravelMultibooking\\": "tests"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CheesyTech\\LaravelMultiBooking\\BookingServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  }
+}
