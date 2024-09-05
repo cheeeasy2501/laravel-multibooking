@@ -17,6 +17,8 @@
     "ergebnis/composer-normalize": "^2.43",
     "pestphp/pest": ">=2.35.1"
   },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "CheesyTech\\LaravelMultiBooking\\": "src/"
@@ -24,7 +26,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "CheesyTech\\LaravelMultibooking\\Tests": "tests"
+      "CheesyTech\\LaravelMultibooking\\Tests\\": "tests"
     }
   },
   "config": {
