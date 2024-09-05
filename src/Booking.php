@@ -40,4 +40,9 @@ class Booking extends Model
     {
         return $this->belongsTo(config('booking.models.booker'), 'booker_id');
     }
+
+    public function booking(): BelongsTo
+    {
+        return $this->belongsTo(config('booking.models.booking'), 'booker_id');
+    }
 }

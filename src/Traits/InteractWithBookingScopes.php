@@ -6,7 +6,7 @@ use CheesyTech\LaravelBooking\Enum\Column;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Carbon;
 
-trait IntersectWithBookingScopes
+trait InteractWithBookingScopes
 {
     protected function target()
     {
