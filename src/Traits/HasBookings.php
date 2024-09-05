@@ -13,7 +13,7 @@ trait HasBookings
     public function bookings(string|array $type = null): MorphMany
     {
         /** @var Model $this */
-        $query = $this->morphMany(Booking::class, 'bookable');
+        $query = $this->morphMany(Booking::class, 'bookable', 'booker_type', 'booker_id');
 
         if ($type) {
             $types = is_array($type) ? $type : [$type];

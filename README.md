@@ -13,8 +13,8 @@ composer require cheeasytech/laravel-multi-booking
 ## Publish Config and Migrations
 Once installed, you can publish the configuration file and migrations:
 ```bash
-php artisan vendor:publish --provider="CheesyTech\LaravelMultiBooking\BookingServiceProvider" --tag="config"
-php artisan vendor:publish --provider="CheesyTech\LaravelMultiBooking\BookingServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="CheesyTech\LaravelBooking\BookingServiceProvider" --tag="config"
+php artisan vendor:publish --provider="CheesyTech\LaravelBooking\BookingServiceProvider" --tag="migrations"
 ```
 
 Run the migrations to create the necessary tables:
@@ -42,7 +42,7 @@ For example:
 ```php
 namespace App\Models;
 
-use CheeasyTech\LaravelMultiBooking\BookableContract;
+use CheeasyTech\LaravelBooking\BookableContract;
 use Illuminate\Database\Eloquent\Model;
 
 class TrainingSession extends Model implements BookableContract

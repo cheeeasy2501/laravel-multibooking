@@ -11,7 +11,17 @@ trait Bookable
     public function bookers(): MorphToMany
     {
         /** @var Model $this */
-        return $this->morphToMany(config('booking.models.booker'), 'bookable', config('booking.tables.bookings'));
+        return $this->morphToMany(
+            related: config('booking.models.booker'),
+            name: 'bookable',
+            table: config('booking.tables.bookings'),
+            foreignPivotKey: 'bookable_id',
+            relatedPivotKey: 'booker_id');
+    }
+
+    public function booker()
+    {
+        return $this->bookers()->first();
     }
 
     public static function bootBookable(): void
