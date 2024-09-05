@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace CheesyTech\LaravelMultiBooking\Traits;
+namespace CheesyTech\LaravelBooking\Traits;
 
-use CheesyTech\LaravelMultiBooking\Booking;
-use CheesyTech\LaravelMultiBooking\Contracts\BookableContract;
+use CheesyTech\LaravelBooking\Booking;
+use CheesyTech\LaravelBooking\Contracts\BookableContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 

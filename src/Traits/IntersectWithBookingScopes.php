@@ -1,6 +1,6 @@
 <?php
 
-namespace CheesyTech\LaravelMultiBooking\Traits;
+namespace CheesyTech\LaravelBooking\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Carbon;

@@ -1,6 +1,6 @@
 <?php
 
-use CheesyTech\LaravelMultiBooking\Booking;
+use CheesyTech\LaravelBooking\Booking;
 
 return [
     'models' => [

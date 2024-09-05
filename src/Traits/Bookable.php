@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CheesyTech\LaravelMultiBooking\Traits;
+namespace CheesyTech\LaravelBooking\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
