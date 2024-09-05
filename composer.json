@@ -19,12 +19,12 @@
   },
   "autoload": {
     "psr-4": {
-      "CheeasyTech\\LaravelMultibooking\\": "src/"
+      "CheesyTech\\LaravelMultiBooking\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "CheeasyTech\\LaravelMultibooking\\": "tests"
+      "CheesyTech\\LaravelMultibooking\\Tests": "tests"
     }
   },
   "config": {
