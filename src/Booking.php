@@ -35,7 +35,7 @@ class Booking extends Model
         return $this->morphTo('booker', 'booker_type', 'booker_id');
     }
 
-    public function booking(): MorphTo
+    public function bookable(): MorphTo
     {
         return $this->morphTo('bookable', 'bookable_type', 'bookable_id');
     }
