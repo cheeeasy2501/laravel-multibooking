@@ -31,18 +31,13 @@ class Booking extends Model
         $this->table = config('booking.tables.bookings');
     }
 
-    public function bookable(): MorphTo
-    {
-        return $this->morphTo();
-    }
-
     public function booker(): BelongsTo
     {
-        return $this->belongsTo(config('booking.models.booker'), 'booker_id');
+        return $this->morphTo('booker', 'booker_type', 'booker_id');
     }
 
     public function booking(): BelongsTo
     {
-        return $this->belongsTo(config('booking.models.booking'), 'booker_id');
+        return $this->morphTo('bookable', 'bookable_type', 'bookable_id');
     }
 }

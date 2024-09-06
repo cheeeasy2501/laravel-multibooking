@@ -3,25 +3,17 @@ declare(strict_types=1);
 
 namespace CheesyTech\LaravelBooking\Traits;
 
+use CheesyTech\LaravelBooking\Booking;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait Bookable
 {
-    public function bookers(): MorphToMany
+    public function bookers(): MorphMany
     {
         /** @var Model $this */
-        return $this->morphToMany(
-            related: config('booking.models.booker'),
-            name: 'bookable',
-            table: config('booking.tables.bookings'),
-            foreignPivotKey: 'bookable_id',
-            relatedPivotKey: 'booker_id');
-    }
 
-    public function booker()
-    {
-        return $this->bookers()->first();
+        return $this->morphMany(Booking::class, 'bookable', 'bookable_type', 'bookable_id');
     }
 
     public static function bootBookable(): void
