@@ -5,7 +5,6 @@ namespace CheesyTech\LaravelBooking;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Booking extends Model
@@ -31,12 +30,12 @@ class Booking extends Model
         $this->table = config('booking.tables.bookings');
     }
 
-    public function booker(): BelongsTo
+    public function booker(): MorphTo
     {
         return $this->morphTo('booker', 'booker_type', 'booker_id');
     }
 
-    public function booking(): BelongsTo
+    public function booking(): MorphTo
     {
         return $this->morphTo('bookable', 'bookable_type', 'bookable_id');
     }
