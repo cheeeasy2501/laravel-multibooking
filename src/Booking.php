@@ -23,11 +23,13 @@ class Booking extends Model
         'booker_id' => 'integer',
     ];
 
-    public function __construct(array $attributes = [])
+    public function __construct(
+        array $attributes = []
+    )
     {
         parent::__construct($attributes);
 
-        $this->table = config('booking.tables.bookings');
+        $this->table = config('booking.tables.bookings', 'bookings');
     }
 
     public function booker(): MorphTo

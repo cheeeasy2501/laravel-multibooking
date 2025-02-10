@@ -10,12 +10,12 @@ trait InteractWithBookingScopes
 {
     protected function target()
     {
-        /** @var HasBookings|Bookable $this */
+        /** @var HasBookings|HasBookers $this */
         $usedTraits = class_uses($this);
 
         if (in_array(HasBookings::class, $usedTraits)) {
             return $this->bookings();
-        } elseif (in_array(Bookable::class, $usedTraits)) {
+        } elseif (in_array(HasBookers::class, $usedTraits)) {
             return $this;
         }
 
@@ -41,21 +41,21 @@ trait InteractWithBookingScopes
 
     public function pastBookings(): MorphMany
     {
-        /** @var HasBookings|Bookable $this */
+        /** @var HasBookings|HasBookers $this */
         return $this->target()
             ->where($this->column(Column::EndedAt), '<', Carbon::now());
     }
 
     public function futureBookings(): MorphMany
     {
-        /** @var HasBookings|Bookable $this */
+        /** @var HasBookings|HasBookers $this */
         return $this->target()
             ->where($this->column(Column::StartedAt), '>', Carbon::now());
     }
 
     public function currentBookings(): MorphMany
     {
-        /** @var HasBookings|Bookable $this */
+        /** @var HasBookings|HasBookers $this */
         return $this->target()
             ->where($this->column(Column::StartedAt), '<', Carbon::now())
             ->where($this->column(Column::EndedAt), '>', Carbon::now());
