@@ -11,5 +11,5 @@ interface BookableContract
 
     public function getBookableType(): string;
 
-    public function bookers(): HasMany;
+    public function bookers(string|array $bookerType = null): HasMany;
 }
