@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace CheesyTech\LaravelBooking\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface BookerContract
 {
@@ -11,5 +12,5 @@ interface BookerContract
 
     public function getBookerType(): string;
 
-    public function bookings(): HasMany;
+    public function bookings(string|array $bookableType = null): MorphMany;
 }
