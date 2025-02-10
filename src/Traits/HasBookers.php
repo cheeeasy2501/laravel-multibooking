@@ -6,12 +6,12 @@ namespace CheesyTech\LaravelBooking\Traits;
 use CheesyTech\LaravelBooking\Booking;
 use CheesyTech\LaravelBooking\Contracts\BookableContract;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder;
 
 trait HasBookers
 {
-    public function bookers(string|array|null $bookerType = null): MorphMany
+    public function bookers(string|array|null $bookerType = null): HasMany
     {
         /** @var Model $this */
 
@@ -19,14 +19,14 @@ trait HasBookers
 
         if ($bookerType) {
             $queryCallback = match (is_array($bookerType)) {
-                true => function (Builder $query) use ($bookerType, $query): Builder {
+                true => function () use ($bookerType, $query): Builder {
                     $validTypes = array_filter($bookerType, function (mixed $type) {
                         return class_exists($type) && in_array(BookableContract::class, class_implements($type));
                     });
 
                     return $query->whereIn('bookable_type', $validTypes);
                 },
-                false => fn(Builder $query): Builder => $query->whereIn('bookable_type', $bookerType)
+                false => fn(): Builder => $query->whereIn('bookable_type', $bookerType)
             };
 
             $query = $queryCallback();
