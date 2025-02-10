@@ -11,5 +11,5 @@ interface BookerContract
 
     public function getBookerType(): string;
 
-    public function bookables(): HasMany;
+    public function bookings(): HasMany;
 }
