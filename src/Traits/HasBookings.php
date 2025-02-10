@@ -12,7 +12,7 @@ use Illuminate\Database\Query\Builder;
 
 trait HasBookings
 {
-    public function bookings(string|array $bookableType = null): MorphMany
+    public function bookings(string|array|null $bookableType = null): MorphMany
     {
         /** @var Model $this */
         $query = $this->morphMany(Booking::class, 'bookable', 'booker_type', 'booker_id');

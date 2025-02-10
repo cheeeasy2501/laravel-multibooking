@@ -11,5 +11,5 @@ interface BookerContract
 
     public function getBookerType(): string;
 
-    public function bookings(string|array $bookableType = null): MorphMany;
+    public function bookings(string|array|null $bookableType = null): MorphMany;
 }

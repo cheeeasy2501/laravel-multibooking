@@ -11,7 +11,7 @@ use Illuminate\Database\Query\Builder;
 
 trait HasBookers
 {
-    public function bookers(string|array $bookerType = null): MorphMany
+    public function bookers(string|array|null $bookerType = null): MorphMany
     {
         /** @var Model $this */
 
